@@ -1,0 +1,74 @@
+body {
+    margin: 0; /* Reset margin */
+}
+.background-wrapper {
+    background-image: url('https://i.imgur.com/hECPded.jpg'); /* Background image */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    height: calc(100vh - 56px); /* Full height of viewport minus navbar height */
+    width: 100vw; 
+    display: flex; 
+    align-items: center; /* Center vertically */
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto; 
+    padding: 20px; 
+}
+
+.card {
+    margin: 0 auto; /* Center the card */
+    width: 100%; /* Make the card take full width on small screens */
+    max-width: 500px; /* Maximum width for larger screens */
+}
+
+@media (max-width: 576px) {
+    .welcome-title {
+        font-size: 1.5rem; /* Adjust font size for small screens */
+    }
+    .card {
+        margin: 20px; /* Add margin to card on smaller screens */
+    }
+}
+@keyframes twinkling {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkling 1.5s infinite alternate;
+}
+
+.dark-mode .star {
+    background: rgba(255, 255, 255, 0.8);
+}
+.login-header {
+    background-color: #fff; /* Light mode header background */
+}
+
+body.dark-mode .login-header {
+    background-color: #1a1a2e; /* Dark mode header background */
+}
+/* Key line for the slider */
+.slider-keyline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* Make it extra thin */
+    background-color: rgba(255, 255, 255, 0.8); /* Light color */
+    z-index: 1;
+}
+.dark-mode .navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5); /* Transparent black */
+}
+
+
+

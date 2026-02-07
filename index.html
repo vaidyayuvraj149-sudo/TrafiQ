@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Sign Up - Create Account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+    <style>
+        body {
+            background-image: url('https://i.imgur.com/hECPded.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            min-height: 100vh; 
+            margin: 0; 
+            transition: background-image 0.5s ease; 
+        }
+        body.dark-mode {
+            background-color: #1a1a2e; 
+            background-image: url('https://imgur.com/guJ2rOE.png');
+            color: #ffffff;
+        }
+        .navbar {
+            position: relative; 
+            z-index: 1000; 
+            background-color: rgba(255, 255, 255, 0.85); 
+            transition: background-color 0.5s ease;
+        }
+        .dark-mode .navbar {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+        .card {
+            border-radius: 10px; 
+            width: 100%; 
+            max-width: 500px; 
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: background-color 0.5s ease, color 0.5s ease; 
+        }
+        .dark-mode .card {
+            background-color: rgba(50, 50, 50, 0.9);
+            border-color: #6c757d; 
+            color: #ffffff; 
+        }
+        .navbar-brand {
+            font-family: 'Pacifico', cursive; 
+            font-size: 1.5rem; 
+            color: black; /* Changed to black in light mode */
+        }
+        .dark-mode .navbar-brand {
+            color: #ffc107; 
+        }
+        .dark-mode .btn-warning {
+            background-color: #ffc107; 
+            border-color: #ffc107; 
+        }
+        .welcome-title {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 40px; /* Increased margin-top for the Sign Up heading */
+            color: #000; 
+            font-family: 'Poppins', sans-serif; 
+            font-size: 2rem; 
+            font-weight: 400; 
+        }
+        .dark-mode .welcome-title {
+            color: #ffffff; 
+        }
+        .google-btn {
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+        }
+        .google-btn:hover {
+            background-color: #0056b3; 
+        }
+        .container {
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: calc(100vh - 60px); 
+            margin-top: 40px; /* Added margin-top for the container */
+        }
+        .forgot-password {
+            text-align: center; 
+            margin-top: 10px;
+        }
+        .rotate {
+            transition: transform 0.5s ease;
+            width: 50px; 
+            height: 50px; 
+        }
+        .dark-mode .rotate {
+            transform: rotate(180deg);
+        }
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 1.5rem; 
+            }
+            .card {
+                max-width: 90%; 
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">TrafiQ</a>
+        <div class="ml-auto">
+            <a href="#" class="nav-link" id="modeToggle">
+                <img src="https://imgur.com/RfTQdRl.png" alt="Logo" class="rotate" id="modeImage">
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="loginSection">
+                            <form id="loginForm" class="form">
+                                <h2 class="welcome-title">Welcome back!<br>Log in and start exploring.</h2>
+                                <div class="form-group">
+                                    <label for="email" class="sr-only">Phone, username, or email</label>
+                                    <input name="email" type="text" class="form-control" placeholder="Phone, username, or email" required aria-describedby="emailHelp">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Password" required aria-describedby="passwordHelp">
+                                    <small id="passwordHelp" class="form-text text-muted">Your password must be 8-20 characters long.</small>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-block rounded-pill" id="loginButton">Log In</button>
+                                
+                                <div class="forgot-password">
+                                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn google-btn btn-block rounded-pill" id="googleLogin">
+                                        <img src="https://i.imgur.com/6DvWKIf.png" alt="Google Logo" width="20" height="20" style="vertical-align: middle; margin-right: 8px;">
+                                        Continue with Google
+                                    </button>
+                                </div>
+
+                                <small class="form-text text-muted text-center no-account">
+                                    Don't have an account? <a href="#" id="showSignup">Create Account</a>
+                                </small>
+                            </form>
+                        </div>
+
+                        <div id="signupSection" class="d-none">
+                            <h2 class="welcome-title">Sign Up</h2> <!-- Updated heading to just "Sign Up" -->
+                            <form id="signupForm">
+                                <div class="form-group">
+                                    <label for="signupName">Name</label>
+                                    <input type="text" class="form-control" id="signupName" placeholder="Enter your name" required aria-describedby="nameHelp">
+                                    <small id="nameHelp" class="form-text text-muted">Enter your full name.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupEmail">Email</label>
+                                    <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required aria-describedby="signupEmailHelp">
+                                    <small id="signupEmailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupPassword">Password</label>
+                                    <input type="password" class="form-control" id="signupPassword" placeholder="Enter your password" required aria-describedby="signupPasswordHelp">
+                                    <small id="signupPasswordHelp" class="form-text text-muted">Your password must be 8-20 characters long.</small>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-block rounded-pill">Create Account</button>
+                                <small class="form-text text-muted text-center">
+                                    Already have an account? <a href="#" id="showLogin">Log In</a>
+                                </small>
+                            </form>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <p class="text-muted">
+                                By continuing to use TrafiQ, you agree to our <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>. 
+                                Personal data added to TrafiQ is public by default — refer to our <a href="#" class="text-primary">Privacy FAQs</a> to make changes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast for success messages -->
+    <div class="toast" id="successToast" style="position: fixed; bottom: 20px; right: 20px;" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="mr-auto">Success</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Your account has been created successfully!
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('showSignup').onclick = function() {
+            document.getElementById('loginSection').classList.add('d-none');
+            document.getElementById('signupSection').classList.remove('d-none');
+        };
+
+        document.getElementById('showLogin').onclick = function() {
+            document.getElementById('signupSection').classList.add('d-none');
+            document.getElementById('loginSection').classList.remove('d-none');
+        };
+
+        document.getElementById('modeToggle').onclick = function() {
+            document.body.classList.toggle('dark-mode');
+        };
+
+        document.getElementById('signupForm').onsubmit = function(e) {
+            e.preventDefault();
+            // Add your signup logic here
+            $('#successToast').toast('show');
+        };
+    </script>
+</body>
+</html>
